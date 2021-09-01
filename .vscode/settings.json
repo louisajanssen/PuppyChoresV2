@@ -1,0 +1,26 @@
+{
+    // Insert spaces when pressing Tab!
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    // Unimportant stuff
+    "files.exclude": {
+      "**/node_modules/": true,
+    },
+    // Defines space handling after opening and before closing JSX expression braces.
+
+    // When opening a file, `editor.tabSize` and `editor.insertSpaces`
+    // will be detected based on the file contents. Set to false to keep
+    // the values you've explicitly set, above.
+    "editor.detectIndentation": false,
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    // We use CRLF for our line endings (enforced by LINT)
+    "files.eol":"\r\n",
+    // Import files always as relative URLs
+    "javascript.preferences.importModuleSpecifier": "relative",
+    "typescript.preferences.importModuleSpecifier": "relative",
+    // Avoid "install this recommended extension" spam
+
+    // Prefer single quotes (e.g. for imports)
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single"
+  }
