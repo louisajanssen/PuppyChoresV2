@@ -1,9 +1,10 @@
 import * as React from "react";
+import { Text } from '@fluentui/react';
 
 export const App: React.FC = () => {
     return (
         <div>
-            <h1>Hello World</h1>
+            <Text>Hello World</Text>
         </div>
     )
 }
