@@ -832,6 +832,17 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, style) {\
 
 /***/ }),
 
+/***/ "./client/ActivityList.tsx":
+/*!*********************************!*\
+  !*** ./client/ActivityList.tsx ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"ActivityList\": () => (/* binding */ ActivityList)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nconst ActivityList = () => {\n    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null,\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", null, \"List\")));\n};\n\n\n//# sourceURL=webpack://PuppyChoresV2/./client/ActivityList.tsx?");
+
+/***/ }),
+
 /***/ "./client/App.tsx":
 /*!************************!*\
   !*** ./client/App.tsx ***!
@@ -839,7 +850,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, style) {\
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"App\": () => (/* binding */ App)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Navbar */ \"./client/Navbar.tsx\");\n\n\nconst App = () => {\n    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null,\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Navbar__WEBPACK_IMPORTED_MODULE_1__.NavBar, null)));\n};\n\n\n//# sourceURL=webpack://PuppyChoresV2/./client/App.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"App\": () => (/* binding */ App)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _ActivityList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ActivityList */ \"./client/ActivityList.tsx\");\n/* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Navbar */ \"./client/Navbar.tsx\");\n\n\n\nconst potty = [{\n        id: 1,\n        activityType: 'potty',\n        date: new Date(),\n        pottyType: 'poo',\n        notes: 'runny poo',\n        photo: ''\n    },\n    {\n        id: 2,\n        activityType: 'potty',\n        date: new Date(),\n        pottyType: 'pee',\n        notes: 'all good',\n        photo: ''\n    },];\nconst food = [{\n        id: 1,\n        activityType: 'food',\n        date: new Date(),\n        finishFood: true,\n        notes: 'everything good',\n        photo: ''\n    },\n    {\n        id: 2,\n        activityType: 'food',\n        date: new Date(),\n        finishFood: false,\n        notes: 'did not seem hungry, will observe',\n        photo: ''\n    },];\nconst App = () => {\n    const [pottyMoment, setPottyMoment] = react__WEBPACK_IMPORTED_MODULE_0__.useState(potty);\n    const [foodMoment, setFoodMoment] = react__WEBPACK_IMPORTED_MODULE_0__.useState(food);\n    if (pottyMoment === undefined || foodMoment === undefined) {\n        return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null,\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", null, \"Oops!\")));\n    }\n    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null,\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Navbar__WEBPACK_IMPORTED_MODULE_2__.NavBar, null),\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ActivityList__WEBPACK_IMPORTED_MODULE_1__.ActivityList, { pottyMoment: pottyMoment, foodMoment: foodMoment })));\n};\n\n\n//# sourceURL=webpack://PuppyChoresV2/./client/App.tsx?");
 
 /***/ }),
 

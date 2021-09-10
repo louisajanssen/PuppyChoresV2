@@ -1,13 +1,13 @@
-interface baseActivity {
-  id: string
+ export interface IbaseActivity {
+  id: Number
   notes: string
   photo: string
 }
 
-interface pottyActivity extends baseActivity {
+export interface IpottyActivity extends IbaseActivity {
   pottyType: string
 }
 
-interface foodActivity extends baseActivity {
+export interface IfoodActivity extends IbaseActivity {
   finishFood: boolean
 }
