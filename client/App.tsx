@@ -1,3 +1,4 @@
+import './App.css';
 import * as React from "react";
 import { ActivityList } from './ActivityList';
 import { IpottyActivity, IfoodActivity } from './Datatypes'
