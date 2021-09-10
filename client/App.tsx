@@ -21,7 +21,7 @@ const potty: IpottyActivity[] = [{
 },]
 
 const food: IfoodActivity[] = [{
-  id: 1,
+  id: 3,
   activityType: 'food',
   date: new Date(),
   finishFood: true,
@@ -29,7 +29,7 @@ const food: IfoodActivity[] = [{
   photo: ''
 },
 {
-  id: 2,
+  id: 4,
   activityType: 'food',
   date: new Date(),
   finishFood: false,
