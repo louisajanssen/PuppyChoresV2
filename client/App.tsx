@@ -1,8 +1,8 @@
-import './App.css';
 import * as React from "react";
 import { ActivityList } from './ActivityList';
 import { IpottyActivity, IfoodActivity } from './Datatypes'
 import { NavBar } from './Navbar';
+import { AddMomentButton } from './AddMomentButton';
 
 const potty: IpottyActivity[] = [{
   id: 1,
@@ -53,6 +53,7 @@ export const App: React.FC = () => {
   return (
     <div>
       <NavBar />
+      <AddMomentButton />
       <ActivityList pottyMoment={pottyMoment} foodMoment={foodMoment}/>
     </div>
   )
