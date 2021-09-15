@@ -44,6 +44,10 @@ const mainDivStyles = {
   align: 'center'
 }
 
+const textStyle = {
+  border: '2px solid #black'
+}
+
 const stackTokens: IStackTokens = {
   childrenGap: 5,
   padding: 10,
@@ -73,7 +77,7 @@ export const Activity: React.FC<IProps>= ({moment}: IProps) => {
           <div style={mainDivStyles}>
           <Stack horizontal styles={stackStyles} tokens={stackTokens}>
             <Stack.Item grow={2} styles={stackItemStyles}>
-              <Text>{getPottyType()}</Text>
+              <Text style={textStyle}>{getPottyType()}</Text>
             </Stack.Item>
             <Stack.Item grow={2} styles={stackItemStyles}>
               <Text variant="medium">on</Text>
@@ -81,8 +85,9 @@ export const Activity: React.FC<IProps>= ({moment}: IProps) => {
             <Stack.Item grow={2} styles={stackItemStyles}>
               Date
             </Stack.Item>
-            <div style={divStyles}>
-              <Text>{moment.notes}</Text>
+            <div style={divStyles}><br/>
+              <Text>Notes:</Text><br/>
+              <Text style={textStyle}>{moment.notes}</Text>
             </div>
           </Stack>
          </div>
