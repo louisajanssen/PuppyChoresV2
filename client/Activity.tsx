@@ -1,6 +1,6 @@
 import * as React from "react";
 import { IfoodActivity, IpottyActivity } from './Datatypes';
-import { Text, DefaultPalette, Stack, IStackStyles, IStackTokens, IStackItemStyles, getTheme } from '@fluentui/react';
+import { Text, TextField, DefaultPalette, Stack, IStackStyles, IStackTokens, IStackItemStyles, getTheme } from '@fluentui/react';
 
 interface IProps {
   moment: IpottyActivity | IfoodActivity
@@ -86,10 +86,9 @@ export const Activity: React.FC<IProps>= ({moment}: IProps) => {
               {moment.date.toLocaleDateString()}
             </Stack.Item>
           </Stack>
-          <Stack horizontal styles={stackStyles} tokens={stackTokens}>
+          <Stack styles={stackStyles} tokens={stackTokens}>
             <Stack.Item grow={2} styles={stackItemStyles}>
-              <Text>Notes:</Text><br/>
-              <Text style={textStyle}>{moment.notes}</Text>
+              <TextField label="Notes:" readOnly defaultValue={moment.notes}/>
             </Stack.Item>
           </Stack>
          </div>
@@ -122,10 +121,9 @@ export const Activity: React.FC<IProps>= ({moment}: IProps) => {
               {moment.date.toLocaleDateString()}
             </Stack.Item>
           </Stack>
-            <Stack horizontal styles={stackStyles} tokens={stackTokens}>
+            <Stack styles={stackStyles} tokens={stackTokens}>
               <Stack.Item grow={2} styles={stackItemStyles}>
-                <Text>Notes:</Text><br/>
-                <Text style={textStyle}>{moment.notes}</Text>
+                <TextField label="Notes:" readOnly defaultValue={moment.notes}/>
               </Stack.Item>
             </Stack>
           </div>
