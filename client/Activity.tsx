@@ -58,7 +58,7 @@ const itemAlignmentsStackTokens: IStackTokens = {
   padding: 10,
 };
 
-const containerStackTokens: IStackTokens = { childrenGap: 5 };
+//const containerStackTokens: IStackTokens = { childrenGap: 5 };
 
 export const Activity: React.FC<IProps>= ({moment}: IProps) => {
 
@@ -83,7 +83,7 @@ export const Activity: React.FC<IProps>= ({moment}: IProps) => {
               <Text variant="medium">on</Text>
             </Stack.Item>
             <Stack.Item grow={2} styles={stackItemStyles}>
-              Date
+              {moment.date.toLocaleDateString()}
             </Stack.Item>
             <div style={divStyles}><br/>
               <Text>Notes:</Text><br/>
@@ -94,10 +94,45 @@ export const Activity: React.FC<IProps>= ({moment}: IProps) => {
         </Stack.Item>
       </Stack>
     )
+  } else if (moment.activityType === 'food') {
+
+    const getFoodStatus = () => {
+      if (moment.finishFood === true) {
+        return "I finished my food"
+      } else {
+        return "I didn't finish my food"
+      }
+    }
+
+    return (
+      
+      <Stack styles={stackStyles} tokens={itemAlignmentsStackTokens}>
+        <Stack.Item align="center" styles={mainStackItemStyles}>
+          <div style={mainDivStyles}>
+          <Stack horizontal styles={stackStyles} tokens={stackTokens}>
+            <Stack.Item grow={2} styles={stackItemStyles}>
+              <Text style={textStyle}>{getFoodStatus()}</Text>
+            </Stack.Item>
+            <Stack.Item grow={2} styles={stackItemStyles}>
+              <Text variant="medium">on</Text>
+            </Stack.Item>
+            <Stack.Item grow={2} styles={stackItemStyles}>
+              {moment.date.toLocaleDateString()}
+            </Stack.Item>
+            <div style={divStyles}><br/>
+              <Text>Notes:</Text><br/>
+              <Text style={textStyle}>{moment.notes}</Text>
+            </div>
+          </Stack>
+          </div>
+        </Stack.Item>
+      </Stack>
+    )
   }
+
   return (
-    <Stack tokens={containerStackTokens}>
-      <Stack.Item align="center">Food: {moment.notes}</Stack.Item>
-    </Stack>
+    <div>
+      <Text>Loading...</Text>
+    </div>
   )
 }
