@@ -31,9 +31,9 @@ const mainStackItemStyles: IStackItemStyles ={
     },
 }
 
-const divStyles = {
-  padding: 10
-}
+// const divStyles = {
+//   padding: 10
+// }
 
 const theme = getTheme();
 
@@ -85,10 +85,12 @@ export const Activity: React.FC<IProps>= ({moment}: IProps) => {
             <Stack.Item grow={2} styles={stackItemStyles}>
               {moment.date.toLocaleDateString()}
             </Stack.Item>
-            <div style={divStyles}><br/>
+          </Stack>
+          <Stack horizontal styles={stackStyles} tokens={stackTokens}>
+            <Stack.Item grow={2} styles={stackItemStyles}>
               <Text>Notes:</Text><br/>
               <Text style={textStyle}>{moment.notes}</Text>
-            </div>
+            </Stack.Item>
           </Stack>
          </div>
         </Stack.Item>
@@ -119,11 +121,13 @@ export const Activity: React.FC<IProps>= ({moment}: IProps) => {
             <Stack.Item grow={2} styles={stackItemStyles}>
               {moment.date.toLocaleDateString()}
             </Stack.Item>
-            <div style={divStyles}><br/>
-              <Text>Notes:</Text><br/>
-              <Text style={textStyle}>{moment.notes}</Text>
-            </div>
           </Stack>
+            <Stack horizontal styles={stackStyles} tokens={stackTokens}>
+              <Stack.Item grow={2} styles={stackItemStyles}>
+                <Text>Notes:</Text><br/>
+                <Text style={textStyle}>{moment.notes}</Text>
+              </Stack.Item>
+            </Stack>
           </div>
         </Stack.Item>
       </Stack>
