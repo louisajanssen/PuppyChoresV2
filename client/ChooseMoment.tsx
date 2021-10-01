@@ -84,6 +84,21 @@ export const ChooseMoment: React.FC = () => {
         </Stack>
       </div>
     )
+  } else if (momentType === "Food") {
+    return (
+      <div style={mainDivStyles}>
+        <Stack styles={stackStyles} tokens={stackTokens}>
+          <Stack.Item grow={2} styles={stackItemStyles}>
+            <Text>Did your puppy finish their food?</Text>
+          </Stack.Item>
+        </Stack>
+        <Stack styles={stackStyles} tokens={stackTokens}>
+          <Stack.Item grow={2} styles={stackItemStyles}>
+            <TextField label="Do you want to add any notes?:"/>
+          </Stack.Item>
+        </Stack>
+      </div>
+    )
   }
 
   return (
