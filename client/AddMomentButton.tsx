@@ -8,14 +8,13 @@ const containerStackTokens: IStackTokens = { childrenGap: 5 };
 
 const cancelIcon: IIconProps = { iconName: 'Cancel' };
 
+const stackItemStyles: IStackItemStyles ={
+  root: {
+      padding: 15,
+    },
+}
 export const AddMomentButton: React.FC = () => {
   const [isModalOpen, { setTrue: showModal, setFalse: hideModal }] = useBoolean(false);
-
-  const stackItemStyles: IStackItemStyles ={
-    root: {
-        padding: 15,
-      },
-  }
 
   return (
     <div>
