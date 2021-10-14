@@ -1,4 +1,4 @@
-import { DefaultButton, DefaultPalette, Dropdown, getTheme, IDropdownOption, IDropdownStyles, IStackItemStyles, IStackStyles, IStackTokens, Stack, Text, TextField } from '@fluentui/react';
+import { DefaultButton, DefaultPalette, Dropdown, getTheme, IDropdownOption, IDropdownStyles, IStackItemStyles, IStackStyles, IStackTokens, Stack, Text, TextField, Toggle } from '@fluentui/react';
 import * as React from "react";
 
 const theme = getTheme();
@@ -17,7 +17,7 @@ const mainDivStyles = {
 const containerStackTokens: IStackTokens = { childrenGap: 5 };
 
 const dropdownStyles: Partial<IDropdownStyles> = {
-  dropdown: { width: 300 },
+  dropdown: { width: 200 },
 };
 
 const stackStyles: IStackStyles = {
@@ -81,6 +81,9 @@ export const ChooseMoment: React.FC = () => {
           <Stack.Item grow={2} styles={stackItemStyles}>
             <TextField label="Do you want to add any notes?:"/>
           </Stack.Item>
+          <Stack.Item grow={2} styles={stackItemStyles}>
+            <DefaultButton styles={iconButtonStyles} text="Save"/>
+          </Stack.Item>
         </Stack>
       </div>
     )
@@ -89,12 +92,15 @@ export const ChooseMoment: React.FC = () => {
       <div style={mainDivStyles}>
         <Stack styles={stackStyles} tokens={stackTokens}>
           <Stack.Item grow={2} styles={stackItemStyles}>
-            <Text>Did your puppy finish their food?</Text>
+          <Toggle label="Did your puppy finish their food?" onText="Yes" offText="No" />
           </Stack.Item>
         </Stack>
         <Stack styles={stackStyles} tokens={stackTokens}>
           <Stack.Item grow={2} styles={stackItemStyles}>
             <TextField label="Do you want to add any notes?:"/>
+          </Stack.Item>
+          <Stack.Item grow={2} styles={stackItemStyles}>
+            <DefaultButton styles={iconButtonStyles} text="Save"/>
           </Stack.Item>
         </Stack>
       </div>
