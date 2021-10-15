@@ -71,11 +71,21 @@ export const Activity: React.FC<IProps>= ({moment}: IProps) => {
         return "I went Number 2!"
       }
     }
+    const getIconUrl = () => {
+      if (moment.pottyType === "poo") {
+        return "https://img.icons8.com/ios/50/000000/dog-pooping.png"
+      } else {
+        return "https://img.icons8.com/ios/50/000000/dog-pee.png"
+      }
+    }
     return (
       <Stack styles={stackStyles} tokens={itemAlignmentsStackTokens}>
         <Stack.Item align="center" styles={mainStackItemStyles}>
           <div style={mainDivStyles}>
           <Stack horizontal styles={stackStyles} tokens={stackTokens}>
+            <Stack.Item grow={2} styles={stackItemStyles}>
+              <img src={getIconUrl()}/>
+            </Stack.Item>
             <Stack.Item grow={2} styles={stackItemStyles}>
               <Text style={textStyle}>{getPottyType()}</Text>
             </Stack.Item>
@@ -104,6 +114,13 @@ export const Activity: React.FC<IProps>= ({moment}: IProps) => {
         return "I didn't finish my food"
       }
     }
+    const getIcon = () => {
+      if (moment.finishFood === true) {
+        return "https://img.icons8.com/ios/50/000000/dog-bowl.png"
+      } else {
+        return "https://img.icons8.com/ios/50/000000/empty-dog-bowl.png"
+      }
+    }
 
     return (
       
@@ -111,6 +128,9 @@ export const Activity: React.FC<IProps>= ({moment}: IProps) => {
         <Stack.Item align="center" styles={mainStackItemStyles}>
           <div style={mainDivStyles}>
           <Stack horizontal styles={stackStyles} tokens={stackTokens}>
+            <Stack.Item grow={2} styles={stackItemStyles}>
+              <img src={getIcon()}/>
+            </Stack.Item>
             <Stack.Item grow={2} styles={stackItemStyles}>
               <Text style={textStyle}>{getFoodStatus()}</Text>
             </Stack.Item>
