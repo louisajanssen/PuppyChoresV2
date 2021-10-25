@@ -39,7 +39,7 @@ const theme = getTheme();
 
 const mainDivStyles = {
   boxShadow: theme.effects.elevation64,
-  width: 600,
+  width: 400,
   padding: 25,
   align: 'center'
 }
