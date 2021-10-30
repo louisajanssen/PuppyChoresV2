@@ -9,12 +9,6 @@ const mainDivStyles = {
   padding: 25,
   align: 'center'
 }
-
-// const stackItemStyles: IStackItemStyles ={
-//   root: {
-//       padding: 15,
-//     },
-// }
 const containerStackTokens: IStackTokens = { childrenGap: 5 };
 
 const dropdownStyles: Partial<IDropdownStyles> = {

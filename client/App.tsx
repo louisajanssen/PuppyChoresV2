@@ -1,10 +1,10 @@
-import * as React from "react";
+import * as React from 'react';
 import { ActivityList } from './ActivityList';
 import { IpottyActivity, IfoodActivity } from './Datatypes'
 import { NavBar } from './Navbar';
 import { AddMomentButton } from './AddMomentButton';
 
-const potty: IpottyActivity[] = [{
+const potty: IpottyActivity[] = [{ //name mockPottyMoments and IPottyActivity
   id: 1,
   activityType: 'potty',
   date: new Date(),
@@ -39,38 +39,39 @@ const food: IfoodActivity[] = [{
 },]
 
 export const App: React.FC = () => {
-  const [pottyMoment, setPottyMoment] = React.useState<IpottyActivity[] | undefined>(potty)
+  const [pottyMoment, setPottyMoment] = React.useState<IpottyActivity[] | undefined>(potty) // name Pottymoments
   const [foodMoment, setFoodMoment] = React.useState<IfoodActivity[] | undefined>(food)
 
-  const onSubmitPotty = (pottyObject: IpottyActivity) => {
-
-    let newPottyArray = pottyMoment?.slice()
-    newPottyArray?.push(pottyObject)
-
-    setPottyMoment(newPottyArray)
-  }
-
-  const onSubmitFood = (foodObject: IfoodActivity) => {
-
-    let newFoodArray = foodMoment?.slice()
-    newFoodArray?.push(foodObject)
-
-    setFoodMoment(newFoodArray)
-  }
-
+  
   if (pottyMoment === undefined || foodMoment === undefined) {
     return (
       <div>
-        <h1>Oops!</h1>
+        <h1>Loading...</h1>
       </div>
     )
   }
 
+  const onSubmitPotty = (pottyObject: IpottyActivity) => { // onPottyMomentCreated, pottyMoment
+
+    let newPottyArray = [...pottyMoment]
+    newPottyArray.push(pottyObject)
+
+    setPottyMoment(newPottyArray)
+  }
+
+  const onSubmitFood = (foodObject: IfoodActivity) => { // onFoodMomentCreated
+
+    let newFoodArray = [...foodMoment]
+    newFoodArray?.push(foodObject)
+
+    setFoodMoment(newFoodArray)
+  }
+  
   return (
     <div>
       <NavBar />
-      <AddMomentButton onSubmitPotty={onSubmitPotty} onSubmitFood={onSubmitFood}/>
-      <ActivityList pottyMoment={pottyMoment} foodMoment={foodMoment}/>
+      <AddMomentButton onSubmitPotty={ onSubmitPotty } onSubmitFood={ onSubmitFood }/>
+      <ActivityList pottyMoment={ pottyMoment } foodMoment={ foodMoment }/>
     </div>
   )
 }

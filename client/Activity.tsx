@@ -31,10 +31,6 @@ const mainStackItemStyles: IStackItemStyles ={
     },
 }
 
-// const divStyles = {
-//   padding: 10
-// }
-
 const theme = getTheme();
 
 const mainDivStyles = {

@@ -12,46 +12,7 @@ const cancelIcon: IIconProps = { iconName: 'Cancel' };
 const stackItemStyles: IStackItemStyles ={
   root: {
       padding: 15,
-    },
-}
-
-interface IProps {
-  onSubmitPotty: (pottyObject: IpottyActivity) => void
-  onSubmitFood: (pottyObject: IfoodActivity) => void
-}
-
-export const AddMomentButton: React.FC<IProps> = ({onSubmitPotty, onSubmitFood}: IProps) => {
-  const [isModalOpen, { setTrue: showModal, setFalse: hideModal }] = useBoolean(false);
-
-  return (
-    <div>
-      <Stack tokens={containerStackTokens}>
-        <Stack.Item align="center" styles={stackItemStyles}>
-          <DefaultButton styles={iconButtonStyles} text="Add New Moment" onClick={showModal} />
-        </Stack.Item> 
-      </Stack>
-      <Modal
-        isOpen={isModalOpen}
-        onDismiss={hideModal}
-        isBlocking={false}
-        containerClassName={contentStyles.container}
-      >
-        <div className={contentStyles.header}>
-          <span style={{paddingLeft: '20px'}}>Add A New Moment</span>
-          <IconButton
-            styles={iconButtonStyles}
-            iconProps={cancelIcon}
-            ariaLabel="Close popup modal"
-            onClick={hideModal}
-          />
-        </div>
-        <div className={contentStyles.body}>
-          <div><ChooseMoment onSubmitPotty={onSubmitPotty} onSubmitFood={onSubmitFood}/></div>
-        </div>
-      </Modal>
-
-    </div>
-  )
+  },
 }
 
 const iconButtonStyles = {
@@ -72,7 +33,6 @@ const contentStyles = mergeStyleSets({
     alignItems: 'stretch',
   },
   header: [
-    // eslint-disable-next-line deprecation/deprecation
     theme.fonts.xLarge,
     {
       flex: '1 1 auto',
@@ -94,3 +54,42 @@ const contentStyles = mergeStyleSets({
     },
   },
 });
+
+interface IProps {
+  onSubmitPotty: (pottyObject: IpottyActivity) => void
+  onSubmitFood: (pottyObject: IfoodActivity) => void
+}
+
+export const AddMomentButton: React.FC<IProps> = ({onSubmitPotty, onSubmitFood}: IProps) => {
+  const [isModalOpen, { setTrue: showModal, setFalse: hideModal }] = useBoolean(false);
+
+  return (
+    <div>
+      <Stack tokens={containerStackTokens}>
+        <Stack.Item align="center" styles={stackItemStyles}>
+          <DefaultButton styles={iconButtonStyles} text="Add New Moment" onClick={showModal} />
+        </Stack.Item> 
+      </Stack>
+      <Modal
+        isOpen={ isModalOpen }
+        onDismiss={ hideModal }
+        isBlocking={ false }
+        containerClassName={ contentStyles.container }
+      >
+        <div className={ contentStyles.header }>
+          <span style={ {paddingLeft: '20px'} }>Add A New Moment</span>
+          <IconButton
+            styles={ iconButtonStyles }
+            iconProps={ cancelIcon }
+            ariaLabel="Close popup modal"
+            onClick={ hideModal }
+          />
+        </div>
+        <div className={contentStyles.body}>
+          <div><ChooseMoment onSubmitPotty={ onSubmitPotty } onSubmitFood={ onSubmitFood }/></div>
+        </div>
+      </Modal>
+    </div>
+  )
+}
+
