@@ -1,6 +1,6 @@
 import { DefaultButton, DefaultPalette, Dropdown, getTheme, IDropdownOption, IDropdownStyles, IStackItemStyles, IStackStyles, IStackTokens, Stack, Text, TextField } from '@fluentui/react';
 import * as React from "react";
-import { IpottyActivity } from './Datatypes';
+import { IfoodActivity, IpottyActivity } from './Datatypes';
 
 const theme = getTheme();
 const mainDivStyles = {
@@ -54,15 +54,17 @@ const divStyles = {
 
 interface IProps {
   onSubmitPotty: (pottyObject: IpottyActivity) => void
+  onSubmitFood: (pottyObject: IfoodActivity) => void
 }
 
-export const ChooseMoment: React.FC<IProps> = ({onSubmitPotty}: IProps) => {
+export const ChooseMoment: React.FC<IProps> = ({onSubmitPotty, onSubmitFood}: IProps) => {
   const [momentType, setMomentType] = React.useState('')
   const [pottyNotes, setPottyNotes] = React.useState('')
   const [foodNotes, setFoodNotes] = React.useState('')
   const [peeOrPoo, setPeeOrPoo] = React.useState('')
-  const [_finishFood, setFinishFood] = React.useState(true)
+  const [foodFinish, setFoodFinish] = React.useState(true)
   const [pottyPhoto, _setPottyPhoto] = React.useState('')
+  const [foodPhoto, _setFoodPhoto] = React.useState('')
   
 
   const optionsDrop: IDropdownOption[] = [
@@ -85,9 +87,9 @@ export const ChooseMoment: React.FC<IProps> = ({onSubmitPotty}: IProps) => {
 
   const onFoodChange = (_e: React.FormEvent<HTMLDivElement>, t: string | IDropdownOption<any> | undefined ) => {
     if (t === "Yes") {
-      setFinishFood(true)
+      setFoodFinish(true)
     } else {
-      setFinishFood(false)
+      setFoodFinish(false)
     }
   }
 
@@ -103,7 +105,21 @@ export const ChooseMoment: React.FC<IProps> = ({onSubmitPotty}: IProps) => {
     }
 
     onSubmitPotty(pottyObject)
-    
+
+  }
+
+  const onFoodSaveClick = () => {
+
+    const foodObject: IfoodActivity = {
+      id: 6,
+      activityType: 'food',
+      date: new Date(),
+      finishFood: foodFinish,
+      notes: foodNotes,
+      photo: foodPhoto
+    }
+
+    onSubmitFood(foodObject)
   }
 
 
@@ -185,7 +201,7 @@ export const ChooseMoment: React.FC<IProps> = ({onSubmitPotty}: IProps) => {
             </Stack.Item>
           </div> */}
           <Stack.Item grow={2} styles={stackItemStyles}>
-            <DefaultButton styles={iconButtonStyles} text="Save"/>
+            <DefaultButton styles={iconButtonStyles} text="Save" onClick={() => onFoodSaveClick()}/>
           </Stack.Item>
         </Stack>
       </div>
