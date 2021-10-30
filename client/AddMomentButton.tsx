@@ -3,6 +3,7 @@ import { DefaultButton, getTheme, IconButton, IIconProps, mergeStyleSets, Modal 
 import { Stack, IStackTokens, IStackItemStyles } from '@fluentui/react/lib/Stack';
 import { useBoolean } from '@fluentui/react-hooks';
 import { ChooseMoment } from './ChooseMoment';
+import { IfoodActivity, IpottyActivity } from './Datatypes';
 
 const containerStackTokens: IStackTokens = { childrenGap: 5 };
 
@@ -13,7 +14,13 @@ const stackItemStyles: IStackItemStyles ={
       padding: 15,
     },
 }
-export const AddMomentButton: React.FC = () => {
+
+interface IProps {
+  onSubmitPotty: (pottyObject: IpottyActivity) => void
+  onSubmitFood: (pottyObject: IfoodActivity) => void
+}
+
+export const AddMomentButton: React.FC<IProps> = ({onSubmitPotty, onSubmitFood}: IProps) => {
   const [isModalOpen, { setTrue: showModal, setFalse: hideModal }] = useBoolean(false);
 
   return (
@@ -39,7 +46,7 @@ export const AddMomentButton: React.FC = () => {
           />
         </div>
         <div className={contentStyles.body}>
-          <div><ChooseMoment /></div>
+          <div><ChooseMoment onSubmitPotty={onSubmitPotty} onSubmitFood={onSubmitFood}/></div>
         </div>
       </Modal>
 

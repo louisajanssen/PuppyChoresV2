@@ -39,8 +39,24 @@ const food: IfoodActivity[] = [{
 },]
 
 export const App: React.FC = () => {
-  const [pottyMoment, _setPottyMoment] = React.useState<IpottyActivity[] | undefined>(potty)
-  const [foodMoment, _setFoodMoment] = React.useState<IfoodActivity[] | undefined>(food)
+  const [pottyMoment, setPottyMoment] = React.useState<IpottyActivity[] | undefined>(potty)
+  const [foodMoment, setFoodMoment] = React.useState<IfoodActivity[] | undefined>(food)
+
+  const onSubmitPotty = (pottyObject: IpottyActivity) => {
+
+    let newPottyArray = pottyMoment?.slice()
+    newPottyArray?.push(pottyObject)
+
+    setPottyMoment(newPottyArray)
+  }
+
+  const onSubmitFood = (foodObject: IfoodActivity) => {
+
+    let newFoodArray = foodMoment?.slice()
+    newFoodArray?.push(foodObject)
+
+    setFoodMoment(newFoodArray)
+  }
 
   if (pottyMoment === undefined || foodMoment === undefined) {
     return (
@@ -53,7 +69,7 @@ export const App: React.FC = () => {
   return (
     <div>
       <NavBar />
-      <AddMomentButton />
+      <AddMomentButton onSubmitPotty={onSubmitPotty} onSubmitFood={onSubmitFood}/>
       <ActivityList pottyMoment={pottyMoment} foodMoment={foodMoment}/>
     </div>
   )

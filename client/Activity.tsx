@@ -98,7 +98,7 @@ export const Activity: React.FC<IProps>= ({moment}: IProps) => {
           </Stack>
           <Stack styles={stackStyles} tokens={stackTokens}>
             <Stack.Item grow={2} styles={stackItemStyles}>
-              <TextField label="Notes:" readOnly multiline rows={2} defaultValue={moment.notes}/>
+              <TextField label="Notes:" readOnly multiline rows={2} value={moment.notes}/>
             </Stack.Item>
           </Stack>
          </div>
@@ -143,7 +143,7 @@ export const Activity: React.FC<IProps>= ({moment}: IProps) => {
           </Stack>
             <Stack styles={stackStyles} tokens={stackTokens}>
               <Stack.Item grow={2} styles={stackItemStyles}>
-                <TextField label="Notes:" readOnly multiline rows={2} defaultValue={moment.notes}/>
+                <TextField label="Notes:" readOnly multiline rows={2} value={moment.notes}/>
               </Stack.Item>
             </Stack>
           </div>

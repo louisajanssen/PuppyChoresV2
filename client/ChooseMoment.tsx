@@ -1,5 +1,6 @@
-import { DefaultButton, DefaultPalette, Dropdown, getTheme, IDropdownOption, IDropdownStyles, IStackItemStyles, IStackStyles, IStackTokens, Stack, Text, TextField, Toggle } from '@fluentui/react';
+import { DefaultButton, DefaultPalette, Dropdown, getTheme, IDropdownOption, IDropdownStyles, IStackItemStyles, IStackStyles, IStackTokens, Stack, Text, TextField } from '@fluentui/react';
 import * as React from "react";
+import { IpottyActivity } from './Datatypes';
 
 const theme = getTheme();
 const mainDivStyles = {
@@ -46,21 +47,32 @@ const divStyles = {
   paddingBottom: 5,
 }
 
-const fileStyles = {
-  paddingLeft: 10,
-  paddingTop: 5,
+// const fileStyles = {
+//   paddingLeft: 10,
+//   paddingTop: 5,
+// }
+
+interface IProps {
+  onSubmitPotty: (pottyObject: IpottyActivity) => void
 }
 
-
-export const ChooseMoment: React.FC = () => {
+export const ChooseMoment: React.FC<IProps> = ({onSubmitPotty}: IProps) => {
   const [momentType, setMomentType] = React.useState('')
   const [pottyNotes, setPottyNotes] = React.useState('')
   const [foodNotes, setFoodNotes] = React.useState('')
-  const [_peeOrPoo, setPeeOrPoo] = React.useState('')
+  const [peeOrPoo, setPeeOrPoo] = React.useState('')
+  const [_finishFood, setFinishFood] = React.useState(true)
+  const [pottyPhoto, _setPottyPhoto] = React.useState('')
+  
 
   const optionsDrop: IDropdownOption[] = [
     { key: 'One', text: 'I went Number 1!'},
     { key: 'Two', text: 'I went Number 2!' },
+  ];
+
+  const foodOptionsDrop: IDropdownOption[] = [
+    { key: 'One', text: 'Yes'},
+    { key: 'Two', text: 'No' },
   ];
 
   const onPottyChange = (_e: React.FormEvent<HTMLDivElement>, t: string | IDropdownOption<any> | undefined ) => {
@@ -69,6 +81,29 @@ export const ChooseMoment: React.FC = () => {
     } else {
       setPeeOrPoo('poo')
     }
+  }
+
+  const onFoodChange = (_e: React.FormEvent<HTMLDivElement>, t: string | IDropdownOption<any> | undefined ) => {
+    if (t === "Yes") {
+      setFinishFood(true)
+    } else {
+      setFinishFood(false)
+    }
+  }
+
+  const onPottySaveClick = () => {
+
+    const pottyObject:IpottyActivity = {
+      id: 5,
+      activityType: 'potty',
+      date: new Date(),
+      pottyType: peeOrPoo,
+      notes: pottyNotes,
+      photo: pottyPhoto
+    }
+
+    onSubmitPotty(pottyObject)
+    
   }
 
 
@@ -105,16 +140,16 @@ export const ChooseMoment: React.FC = () => {
               <TextField value={pottyNotes} onChange={(_e, t) => setPottyNotes(t ?? '')} multiline rows={3} label="Do you want to add any notes?:"/>
             </Stack.Item>
           </div>
-          <div style={divStyles}>
-            <Stack.Item grow={2} styles={stackItemStyles}>
+          {/* <div style={divStyles}>
+            {/* <Stack.Item grow={2} styles={stackItemStyles}>
               <Text>Do you want to upload photos?</Text>
             </Stack.Item>
           </div>
           <Stack.Item grow={2} styles={stackItemStyles}>
             <input type="file" name="photo" />
-          </Stack.Item>
+          </Stack.Item> */}
           <Stack.Item grow={2} styles={stackItemStyles}>
-            <DefaultButton styles={iconButtonStyles} text="Save"/>
+            <DefaultButton styles={iconButtonStyles} text="Save" onClick={() => onPottySaveClick()}/>
           </Stack.Item>
         </Stack>
       </div>
@@ -124,7 +159,13 @@ export const ChooseMoment: React.FC = () => {
       <div style={mainDivStyles}>
         <Stack styles={stackStyles} tokens={stackTokens}>
           <Stack.Item grow={2} styles={stackItemStyles}>
-          <Toggle label="Did your puppy finish the food?" onText="Yes" offText="No" />
+            <Dropdown
+              placeholder="Select an option!"
+              label="Did your puppy finish the food?"
+              styles={dropdownStyles}
+              options={foodOptionsDrop}
+              onChange={(_e, t) => onFoodChange(_e, t)}
+            />
           </Stack.Item>
         </Stack>
         <Stack styles={stackStyles} tokens={stackTokens}>
@@ -133,7 +174,7 @@ export const ChooseMoment: React.FC = () => {
               <TextField value={foodNotes} onChange={(_e, t) => setFoodNotes(t ?? '')} multiline rows={3} label="Do you want to add any notes?:"/>
             </Stack.Item>
           </div>
-          <div style={divStyles}>
+          {/* <div style={divStyles}>
             <Stack.Item grow={2} styles={stackItemStyles}>
               <Text>Do you want to upload photos?</Text>
             </Stack.Item>
@@ -142,7 +183,7 @@ export const ChooseMoment: React.FC = () => {
             <Stack.Item grow={2} styles={stackItemStyles}>
               <input type="file" name="photo" />
             </Stack.Item>
-          </div>
+          </div> */}
           <Stack.Item grow={2} styles={stackItemStyles}>
             <DefaultButton styles={iconButtonStyles} text="Save"/>
           </Stack.Item>
@@ -169,3 +210,4 @@ const iconButtonStyles = {
     align: 'center',
   },
 };
+
