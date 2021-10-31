@@ -7,7 +7,7 @@ interface IProps {
   foodMoment: IfoodActivity[]
 }
 
-export const ActivityList: React.FC<IProps>= ({pottyMoment, foodMoment}: IProps) => {
+export const ActivityList: React.FC<IProps>= ({ pottyMoment, foodMoment }: IProps) => {
 
   const activityArray = [...pottyMoment, ...foodMoment]
 
@@ -15,7 +15,7 @@ export const ActivityList: React.FC<IProps>= ({pottyMoment, foodMoment}: IProps)
 
   return (
     <div>
-      {sortedActivityArray.map((moment) => <Activity moment={moment}/>)}
+      {sortedActivityArray.map((moment) => <Activity moment={ moment }/>)}
     </div>
   )
 }

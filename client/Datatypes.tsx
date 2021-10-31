@@ -1,6 +1,8 @@
- export interface IbaseActivity {
+export type ActivityType = 'potty' | 'food'
+ 
+export interface IbaseActivity {
   id: Number
-  activityType: 'potty' | 'food'
+  activityType: ActivityType
   notes: string
   photo: string
   date : Date

@@ -75,25 +75,25 @@ export const Activity: React.FC<IProps>= ({moment}: IProps) => {
       }
     }
     return (
-      <Stack styles={stackStyles} tokens={itemAlignmentsStackTokens}>
-        <Stack.Item align="center" styles={mainStackItemStyles}>
+      <Stack styles={ stackStyles } tokens={ itemAlignmentsStackTokens }>
+        <Stack.Item align="center" styles={ mainStackItemStyles }>
           <div style={mainDivStyles}>
-          <Stack horizontal styles={stackStyles} tokens={stackTokens}>
-            <Stack.Item grow={2} styles={stackItemStyles}>
-              <img src={getIconUrl()}/>
+           <Stack horizontal styles={ stackStyles } tokens={stackTokens}>
+            <Stack.Item grow={ 2 } styles={ stackItemStyles }>
+              <img src={ getIconUrl() }/>
             </Stack.Item>
-            <Stack.Item grow={2} styles={stackItemStyles}>
+            <Stack.Item grow={ 2 } styles={ stackItemStyles }>
               <Text style={textStyle}>{getPottyType()}</Text>
             </Stack.Item>
-            <Stack.Item grow={2} styles={stackItemStyles}>
+            <Stack.Item grow={ 2 } styles={ stackItemStyles }>
               <Text variant="medium">on</Text>
             </Stack.Item>
-            <Stack.Item grow={2} styles={stackItemStyles}>
-              {moment.date.toLocaleDateString()}
+            <Stack.Item grow={ 2 } styles={ stackItemStyles }>
+              { moment.date.toLocaleDateString() }
             </Stack.Item>
           </Stack>
           <Stack styles={stackStyles} tokens={stackTokens}>
-            <Stack.Item grow={2} styles={stackItemStyles}>
+            <Stack.Item grow={ 2 } styles={stackItemStyles}>
               <TextField label="Notes:" readOnly multiline rows={2} value={moment.notes}/>
             </Stack.Item>
           </Stack>
@@ -120,26 +120,26 @@ export const Activity: React.FC<IProps>= ({moment}: IProps) => {
 
     return (
       
-      <Stack styles={stackStyles} tokens={itemAlignmentsStackTokens}>
-        <Stack.Item align="center" styles={mainStackItemStyles}>
-          <div style={mainDivStyles}>
-          <Stack horizontal styles={stackStyles} tokens={stackTokens}>
-            <Stack.Item grow={2} styles={stackItemStyles}>
-              <img src={getIcon()}/>
+      <Stack styles={ stackStyles } tokens={ itemAlignmentsStackTokens }>
+        <Stack.Item align="center" styles={ mainStackItemStyles }>
+          <div style={ mainDivStyles }>
+          <Stack horizontal styles={ stackStyles } tokens={ stackTokens }>
+            <Stack.Item grow={ 2 } styles={ stackItemStyles }>
+              <img src={ getIcon() }/>
             </Stack.Item>
-            <Stack.Item grow={2} styles={stackItemStyles}>
-              <Text style={textStyle}>{getFoodStatus()}</Text>
+            <Stack.Item grow={ 2 } styles={stackItemStyles}>
+              <Text style={ textStyle }>{ getFoodStatus() }</Text>
             </Stack.Item>
-            <Stack.Item grow={2} styles={stackItemStyles}>
+            <Stack.Item grow={ 2 } styles={stackItemStyles}>
               <Text variant="medium">on</Text>
             </Stack.Item>
-            <Stack.Item grow={2} styles={stackItemStyles}>
-              {moment.date.toLocaleDateString()}
+            <Stack.Item grow={ 2 } styles={stackItemStyles}>
+              { moment.date.toLocaleDateString() }
             </Stack.Item>
           </Stack>
-            <Stack styles={stackStyles} tokens={stackTokens}>
-              <Stack.Item grow={2} styles={stackItemStyles}>
-                <TextField label="Notes:" readOnly multiline rows={2} value={moment.notes}/>
+            <Stack styles={ stackStyles } tokens={ stackTokens }>
+              <Stack.Item grow={ 2 } styles={ stackItemStyles }>
+                <TextField label="Notes:" readOnly multiline rows={ 2 } value={ moment.notes }/>
               </Stack.Item>
             </Stack>
           </div>
@@ -150,7 +150,7 @@ export const Activity: React.FC<IProps>= ({moment}: IProps) => {
 
   return (
     <div>
-      <Text>Loading...</Text>
+      <Text>Error...</Text>
     </div>
   )
 }

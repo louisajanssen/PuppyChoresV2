@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ActivityList } from './ActivityList';
 import { IpottyActivity, IfoodActivity } from './Datatypes'
 import { NavBar } from './Navbar';
-import { AddMomentButton } from './AddMomentButton';
+import { AddMomentButton } from './AddMomentDialog';
 
 const potty: IpottyActivity[] = [{ //name mockPottyMoments and IPottyActivity
   id: 1,
